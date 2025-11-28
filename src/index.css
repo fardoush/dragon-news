@@ -18,5 +18,10 @@
 
 *{
     font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    box-shadow: none;
 
+}
+a.active{
+  @apply bg-base-300;
 }
