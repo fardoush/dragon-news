@@ -15,6 +15,7 @@ const NewsCard = ({ news }) => {
     tags,
   } = news;
 
+  const formattedDate = new Date(news.author.published_date).toDateString();
   return (
     <div className="card bg-base-100 shadow-md   mb-6 border-base-300 border border-t-0   rounded-tl-xl rounded-tr-xl">
       {/* Author + actions */}
@@ -28,7 +29,7 @@ const NewsCard = ({ news }) => {
           <div>
             <h2 className="text-base font-semibold text-primary">{author?.name}</h2>
             <p className="text-xs text-accent">
-              {new Date(news.author.published_date).toDateString()}
+              {formattedDate}
             </p>
           </div>
         </div>
@@ -85,7 +86,10 @@ const NewsCard = ({ news }) => {
       {/* Rating + views */}
       <div className="border-t pt-3 mt-3 flex justify-between items-center border-base-300">
         <div className="flex items-center gap-2 text-orange-500">
-          <FaStar />
+            {Array.from ({ length: rating.number}).map((_,i) => (
+<FaStar  key={i}/>
+            ))}
+          
           <span className="font-semibold text-base">{rating?.number}</span>
         </div>
 
