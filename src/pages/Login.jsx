@@ -31,7 +31,7 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button className="btn btn-neutral bg-primary hover:bg-secondary hover:border-secondary mt-4">Login</button>
 
             <p className="font-semibold text-center text-primary pt-5">
               Dont Have An Account ? <Link to="/auth/register" className="text-secondary"> Register</Link>
