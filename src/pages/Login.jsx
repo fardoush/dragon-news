@@ -1,8 +1,28 @@
 
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const {signIn} = use(AuthContext);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email,password);
+    signIn(email,password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorCode,errorMessage );
+  });
+
+  }
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -11,7 +31,7 @@ const Login = () => {
             Login your account
           </h2>
           {/* <div className="divider"></div> */}
-          <form className="fieldset">
+          <form onSubmit={handleLogin} className="fieldset">
             {/* email  */}
             <label className="label">Email Address</label>
             <input
@@ -31,7 +51,7 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn btn-neutral bg-primary hover:bg-secondary hover:border-secondary mt-4">Login</button>
+            <button type="submit" className="btn btn-neutral bg-primary hover:bg-secondary hover:border-secondary mt-4">Login</button>
 
             <p className="font-semibold text-center text-primary pt-5">
               Dont Have An Account ? <Link to="/auth/register" className="text-secondary"> Register</Link>
