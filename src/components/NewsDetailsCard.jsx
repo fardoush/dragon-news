@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router";
 
+
 const NewsDetailsCard = ({ news }) => {
   const {
     title,
     author,
-    published_date,
     image_url,
     details,
     tags,
   } = news;
 
 
-  const formattedDate = new Date(news.author.published_date).toDateString();
+  const formattedDate = new Date(news.author?.published_date).toDateString();
 
   return (
     <div className="border  border-base-300  rounded-xl shadow-sm p-6 bg-white">
