@@ -24,7 +24,7 @@ logOut().then(() => {
                 <NavLink to='/career'>Career</NavLink>
             </div>
             <div className="login-btn flex gap-5">
-                <img src={userIcon} alt="" className="" />
+                <img src={`${user ? user.photoURL : userIcon}`} alt="" className="w-12 h-12 border border-accent p-0 object-cover rounded-full" />
                 {/* jodi user thake tahole logout btn dekhabe ar jodi na thake tahole login  */}
 
                 {

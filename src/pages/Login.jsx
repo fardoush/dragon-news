@@ -1,10 +1,14 @@
 
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const {signIn} = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,12 +18,15 @@ const Login = () => {
     signIn(email,password)
     .then(result => {
       const user = result.user;
-      console.log(user);
+      // console.log(user);
+      navigate(`${location.state ? location.state : "/"}`)
+
     })
     .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    alert(errorCode,errorMessage );
+    // alert(errorCode,errorMessage );
+    setError(errorCode);
   });
 
   }
@@ -39,6 +46,7 @@ const Login = () => {
               name="email"
               className="input"
               placeholder="Enter your email address"
+              required
             />
             {/* passowrd  */}
             <label className="label">Password</label>
@@ -47,10 +55,12 @@ const Login = () => {
               name="password"
               className="input"
               placeholder="Enter your password"
+              required
             />
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
+            {error && <p className="text-red-400">{error}</p>}
             <button type="submit" className="btn btn-neutral bg-primary hover:bg-secondary hover:border-secondary mt-4">Login</button>
 
             <p className="font-semibold text-center text-primary pt-5">
