@@ -18,16 +18,16 @@ const HomeLayouts = () => {
                     <Navbar></Navbar>
                 </nav>
             </header>
-            <main className='w-11/12 mx-auto my-3 grid grid-cols-12 gap-5'>
-                <aside className='col-span-3 sticky top-0 h-fit'>
+            <main className='w-full md:w-11/12 mx-auto my-3 grid grid-cols-1 md:grid-cols-12 gap-5'>
+                <aside className='hidden md:block md:col-span-3 sticky top-0 h-fit'>
                     <LeftAside/>
                 </aside>
               
-                <section className="main col-span-6">
+                <section className="main col-span-3 md:col-span-6">
                     <Outlet/>
                 </section>
                 
-                <aside className='col-span-3 sticky top-0 h-fit'>
+                <aside className='col-span-1 md:col-span-3 hidden md:block sticky top-0 h-fit'>
                     <RightAside/>
                 </aside>
             </main>

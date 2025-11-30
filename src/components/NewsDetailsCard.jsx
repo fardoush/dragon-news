@@ -11,23 +11,17 @@ const NewsDetailsCard = ({ news }) => {
     tags,
   } = news;
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+
+  const formattedDate = new Date(news.author.published_date).toDateString();
 
   return (
-    <div className="border  border-accent rounded-xl shadow-sm p-6 bg-white">
+    <div className="border  border-base-300  rounded-xl shadow-sm p-6 bg-white">
       {/* Thumbnail / Big Image */}
       <div className="w-full h-72 mb-5 overflow-hidden rounded-xl">
         <img
           src={image_url}
           alt={title}
-          className="w-full h-[350px] object-cover"
+          className="w-full h-auto object-cover"
         />
       </div>
 
@@ -37,8 +31,10 @@ const NewsDetailsCard = ({ news }) => {
       </h2>
 
       {/* Meta Info */}
-      <div className="text-sm text-gray-500 mb-4">
-        {formatDate(published_date)} |{" "}
+      <div className="text-sm text-gray-500 mb-4 flex gap-3 items-center">
+         <p className="text-xs text-accent">
+              {formattedDate}
+            </p>
         <span className="text-gray-700 font-medium">{author?.name}</span>
       </div>
 

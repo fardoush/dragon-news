@@ -15,17 +15,17 @@ const NewsDetails = () => {
     }, [data, id])
 
     return (
-        <div>
+        <div className='min-h-screen bg-base-100'>
             <header className='py-3'>
                 <Header/>
             </header>
-            <main className="w11/12 mx-auto grid grid-cols-12 gap-5 py-10">
-            <section className="col-span-9">
+            <main className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 py-10">
+            <section className="lg:col-span-9">
                 <h2 className="font-bold">News Details</h2>
                 
                 <NewsDetailsCard news={news} key={news.id}/>
             </section>
-            <aside className='col-span-3'>
+            <aside className='lg:col-span-3'>
                 <RightAside/>
             </aside>
             </main>
