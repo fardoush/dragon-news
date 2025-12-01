@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // user data show
-  console.log(user);
+  // console.log(user);
 
   // User Sign UP Korar jonno
 
@@ -33,11 +33,11 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // Update User 
+  // Update User
 
   const updateUser = (updatedData) => {
-return updateProfile(auth.currentUser, updatedData);
-  }
+    return updateProfile(auth.currentUser, updatedData);
+  };
 
   // LogOut /
   const logOut = () => {
@@ -64,7 +64,7 @@ return updateProfile(auth.currentUser, updatedData);
     signIn,
     loading,
     setLoading,
-    updateUser
+    updateUser,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };
