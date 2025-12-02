@@ -5,7 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const SocialLogin = () => {
-const {signInWithGoogle} = use(AuthContext);
+const {user, signInWithGoogle, signInWithGithub} = use(AuthContext);
   
   //  const { signIn } = use(AuthContext);
 
@@ -21,6 +21,25 @@ const {signInWithGoogle} = use(AuthContext);
     })
   }
 
+  // github 
+
+  const handleGithubLogin = () => {
+    signInWithGithub()
+    .then(result => {
+      const user = result.user;
+      console.log("User:", user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
+  }
+
+    // 🚫 User logged in → hide login buttons
+  if (user) {
+    return null;
+  }
+
   return (
     <div>
       <h2 className="font-bold mb-5">Login With</h2>
@@ -28,7 +47,7 @@ const {signInWithGoogle} = use(AuthContext);
         <button onClick={handleGoogleLogin} className="btn btn-outline btn-secondary w-full">
           <FaGoogle size={24} /> Login With Google
         </button>
-        <button  className="btn btn-outline btn-primary w-full ">
+        <button onClick={handleGithubLogin} className="btn btn-outline btn-primary w-full ">
           <FaGithub size={24} />
           Login With Github
         </button>

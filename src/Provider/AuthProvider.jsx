@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -22,28 +23,19 @@ const AuthProvider = ({ children }) => {
   // Google  Login
 
   const googleProvider = new GoogleAuthProvider();
+  const githunProvider = new GithubAuthProvider();
 
   const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   }
 
-  // const googleProvider = new GoogleAuthProvider();
-  // const signInWithGoogle = () => {
-  //   setLoading(true);
-  //   return signInWithPopup(auth, googleProvider);
-  // }
+  // GitHub Login 
 
-  // Github LOgin
-
-  // const githubProvider = new GithubAuthProvider();
-  // const signInWithGithub = () => {
-  //   setLoading(true);
-  //   return signInWithPopup(auth, githubProvider);
-  // }
-
-  // user data show
-  // console.log(user);
+  const signInWithGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githunProvider );
+  }
 
   // User Sign UP Korar jonno
 
@@ -90,7 +82,8 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     updateUser,
-    signInWithGoogle
+    signInWithGoogle,
+    signInWithGithub
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };
