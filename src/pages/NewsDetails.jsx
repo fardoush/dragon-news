@@ -21,7 +21,7 @@ const NewsDetails = () => {
       </header>
       <main className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 py-10">
         <section className="lg:col-span-9">
-          <h2 className="font-bold">News Details</h2>
+          <h2 className="font-bold mb-5">News Details</h2>
 
           <NewsDetailsCard news={news} key={news.id} />
         </section>

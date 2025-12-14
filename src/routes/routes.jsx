@@ -8,6 +8,7 @@ import AuthLayouts from "../layouts/AuthLayouts";
 import NewsDetails from "../pages/NewsDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
 import Loading from "../pages/Loading";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home,
+        Component: Home
       },
 
       {
@@ -52,8 +53,8 @@ const router = createBrowserRouter([
     hydrateFallbackElement: <Loading></Loading>
   },
   {
-    path: "/*",
-    element: <h2>Error 404</h2>,
+    path: "*",
+    element: <Error/>,
   },
 ]);
 

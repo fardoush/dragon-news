@@ -14,7 +14,7 @@ const {user, signInWithGoogle, signInWithGithub} = use(AuthContext);
     signInWithGoogle()
     .then(result => {
       const user = result.user;
-      console.log("User:", user);
+      // console.log("User:", user);
     })
     .catch(error => {
       console.log(error);
@@ -27,7 +27,7 @@ const {user, signInWithGoogle, signInWithGithub} = use(AuthContext);
     signInWithGithub()
     .then(result => {
       const user = result.user;
-      console.log("User:", user);
+      // console.log("User:", user);
     })
     .catch(error => {
       console.log(error);

@@ -5,7 +5,7 @@ import  playImage from "../../assets/playground.png";
 
 const Qzone = () => {
     return (
-        <div className='bg-base-200 p-3'>
+        <div className='bg-base-200 p-3 rounded-lg'>
             <h2 className="font-bold mb-5">Q-Zone</h2>
             <div className=" w-full space-y-5 ">
                 <img src={swimmingImage} alt="" className='w-full'/>

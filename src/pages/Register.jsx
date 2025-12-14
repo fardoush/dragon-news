@@ -21,7 +21,7 @@ const Register = () => {
       setNameError(" ");
     }
     // console.log(e.target);
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
     createUser(email, password)
       .then((resutl) => {
         const user = resutl.user;

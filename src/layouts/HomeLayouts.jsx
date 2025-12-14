@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import LeftAside from "../components/homelayout/LeftAside";
 import RightAside from "../components/homelayout/RightAside";
 import Loading from "../pages/Loading";
+import Footer from "../components/Footer";
 
 const HomeLayouts = () => {
     const {state} = useNavigate();
@@ -20,7 +21,7 @@ const HomeLayouts = () => {
           <Navbar></Navbar>
         </nav>
       </header>
-      <main className="w-full md:w-11/12 mx-auto my-3 grid grid-cols-1 md:grid-cols-12 gap-5">
+      <main className="w-full md:w-11/12 mx-auto my-3 grid grid-cols-1 md:grid-cols-12 gap-5 mb-24">
         <aside className="hidden md:block md:col-span-3 sticky top-0 h-fit">
           <LeftAside />
         </aside>
@@ -33,6 +34,8 @@ const HomeLayouts = () => {
           <RightAside />
         </aside>
       </main>
+
+      <Footer/>
     </div>
   );
 };

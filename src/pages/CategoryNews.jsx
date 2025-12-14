@@ -29,7 +29,7 @@ const CategoryNews = () => {
     }
   }, [data, id]);
   return (
-    <div>
+    <div className="md:px-0 px-10">
       <h2 className="text-2xl font-bold mb-3">
         {" "}
         Total <span className="text-secondary">{categoryNews.length}</span> news
